@@ -1,0 +1,32 @@
+[user]
+	email = pablo.panero@cern.ch
+	name = Pablo Panero
+[github]
+    user = ppanero
+[core]
+    excludesfile = ~/dotfiles/.gitignore_global
+    editor = vim
+	ignorecase = false
+[pager]
+    diff = false
+[alias]
+    g = grep
+    f = fetch
+    fo = fetch origin
+    fi = fetch inveniosw
+    fa = fetch --all
+    mf = merge --ff-only
+    d = diff
+    rbc = rebase --continue
+    rba = rebase --abort
+    s = status
+    ci = commit
+    cia = commit --amend
+    co = checkout
+    cob = checkout -b
+    a = add
+    ap = add -p
+    b = branch
+    p = pull
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    delete-merged-branches = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
