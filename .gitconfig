@@ -30,3 +30,4 @@
     p = pull
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
     delete-merged-branches = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    pr-config=!git config --add remote.inveniosw.fetch "+refs/pull/*/head:refs/remotes/inveniosoftware/pr/*"
