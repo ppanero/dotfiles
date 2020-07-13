@@ -99,3 +99,14 @@ dsa() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
 drma() { docker rm $(docker ps -a -q); }
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# PostgreSQL 9.6 brew client
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/postgresql@9.6/lib"
+export CPPFLAGS="-I/usr/local/opt/postgresql@9.6/include"
+export PKG_CONFIG_PATH="/usr/local/opt/postgresql@9.6/lib/pkgconfig"
