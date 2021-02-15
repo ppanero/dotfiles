@@ -110,3 +110,6 @@ export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/postgresql@9.6/lib"
 export CPPFLAGS="-I/usr/local/opt/postgresql@9.6/include"
 export PKG_CONFIG_PATH="/usr/local/opt/postgresql@9.6/lib/pkgconfig"
+
+# Golang
+export GOPATH="/Users/ppanero/Workspace/go"
