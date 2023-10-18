@@ -1,12 +1,16 @@
+# setup instructions
+# 1. ln -s $(pwd)/.gitconfig ~/.gitconfig
+# ---------------------------------------
+
 [user]
-	email = pablo.panero@cern.ch
+	email = pablo.panero@preply.com
 	name = Pablo Panero
 [github]
     user = ppanero
 [core]
-    excludesfile = ~/dotfiles/.gitignore_global
+    excludesfile = ~/Workspace/dotfiles/.gitignore_global
     editor = vim
-	ignorecase = false
+    ignorecase = false
 [pager]
     diff = false
 [alias]
@@ -28,6 +32,9 @@
     ap = add -p
     b = branch
     p = pull
-    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-    delete-merged-branches = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-    pr-config=!git config --add remote.inveniosw.fetch "+refs/pull/*/head:refs/remotes/inveniosoftware/pr/*"
+[commit]
+	gpgsign = true
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true

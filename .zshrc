@@ -1,8 +1,13 @@
+# setup instructions
+# 1. Install Oh-My-Zsh: https://ohmyz.sh/#install
+# 2. ln -s $(pwd)/.zshrc ~/.zshrc
+# -----------------------------------------------
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ppanero/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +75,7 @@ ZSH_THEME="simple"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  osx
+  macos
   docker
   iterm2
 )
@@ -79,20 +84,22 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Python version on OS X via pyenv
-export PATH="$(pyenv root)/shims:/usr/local/sbin:$PATH"
+# export PATH="$(pyenv root)/shims:/usr/local/sbin:$PATH"
 
 # Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Devel
+# source /usr/local/bin/virtualenvwrapper.sh
 
-# Cairo
-# Requires brew install libsvg-cairo
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Aliasing hub into git
-eval "$(hub alias -s)"
+# Golang
+# export GOPATH="/Users/ppanero/Workspace/go"
+
+# Aliases
 
 # Stop all containers
 dsa() { docker stop $(docker ps -a -q); }
@@ -100,16 +107,5 @@ dsa() { docker stop $(docker ps -a -q); }
 # Remove all containers
 drma() { docker rm $(docker ps -a -q); }
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# PostgreSQL 9.6 brew client
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/postgresql@9.6/lib"
-export CPPFLAGS="-I/usr/local/opt/postgresql@9.6/include"
-export PKG_CONFIG_PATH="/usr/local/opt/postgresql@9.6/lib/pkgconfig"
-
-# Golang
-export GOPATH="/Users/ppanero/Workspace/go"
+# vs code
+# install from vs code itself
