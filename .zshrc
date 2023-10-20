@@ -1,7 +1,21 @@
 # setup instructions
 # 1. Install Oh-My-Zsh: https://ohmyz.sh/#install
 # 2. ln -s $(pwd)/.zshrc ~/.zshrc
-# -----------------------------------------------
+#
+# For Python
+# 1. brew update
+# 3. brew install openssl readline xz pyenv
+# 4. pyenv install 3.11.4
+# 5. pyenv global 3.11.4
+# 6. source or open a new terminal
+#
+# For psql client
+# 1. brew install libpq
+# 2. brew link --force libpq
+#
+# note: the previous python requirements will change
+# depending on the version
+# --------------------------------------------------
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -84,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Python version on OS X via pyenv
-# export PATH="$(pyenv root)/shims:/usr/local/sbin:$PATH"
+export PATH="$(pyenv root)/shims:/usr/local/sbin:$PATH"
 
 # Virtualenvwrapper
 # export WORKON_HOME=$HOME/.virtualenvs
@@ -96,6 +110,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# AWS
+export AWS_ACCESS_KEY_ID="CHANGEME"
+export AWS_SECRET_ACCESS_KEY="CHANGEME"
+export AWS_SESSION_TOKEN="CHANGEME"
+
+# psql client
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/lib/pkgconfig"
+
 # Golang
 # export GOPATH="/Users/ppanero/Workspace/go"
 
@@ -106,6 +130,9 @@ dsa() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
 drma() { docker rm $(docker ps -a -q); }
+
+# login into aws
+aws_login() { aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin CHANGEME.dkr.ecr.eu-west-1.amazonaws.com }
 
 # vs code
 # install from vs code itself
