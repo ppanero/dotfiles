@@ -15,15 +15,18 @@
     diff = false
 [alias]
     a = add
+    alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
     ap = add -p
     b = branch
     ci = commit
     cia = commit --amend
+    cleanbranches = ! git branch | grep -v "master" | xargs git branch -D
     co = checkout
     cob = checkout -b
     d = diff
     f = fetch
     fa = fetch --all
+    fire = ! git add -A && git ci -m "FIRE!" && git push -f
     fo = fetch origin
     fom = fetch origin master
     g = grep
@@ -32,7 +35,9 @@
     prom = pull --rebase origin master
     rba = rebase --abort
     rbc = rebase --continue
+    rh = reset --hard
     s = status
+    zen = ! git co master && git nobranches && git fp && git prune
 [commit]
 	gpgsign = true
 [credential]
