@@ -14,24 +14,25 @@
 [pager]
     diff = false
 [alias]
-    g = grep
-    f = fetch
-    fo = fetch origin
-    fi = fetch inveniosw
-    fa = fetch --all
-    mf = merge --ff-only
-    d = diff
-    rbc = rebase --continue
-    rba = rebase --abort
-    s = status
+    a = add
+    ap = add -p
+    b = branch
     ci = commit
     cia = commit --amend
     co = checkout
     cob = checkout -b
-    a = add
-    ap = add -p
-    b = branch
+    d = diff
+    f = fetch
+    fa = fetch --all
+    fo = fetch origin
+    fom = fetch origin master
+    g = grep
+    mf = merge --ff-only
     p = pull
+    prom = pull --rebase origin master
+    rba = rebase --abort
+    rbc = rebase --continue
+    s = status
 [commit]
 	gpgsign = true
 [credential]
