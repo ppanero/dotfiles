@@ -29,6 +29,7 @@
     fire = ! git add -A && git ci -m "FIRE!" && git push -f
     fo = fetch origin
     fom = fetch origin master
+    fp = fetch -p
     g = grep
     mf = merge --ff-only
     p = pull
@@ -37,7 +38,7 @@
     rbc = rebase --continue
     rh = reset --hard
     s = status
-    zen = ! git co master && git nobranches && git fp && git prune
+    zen = ! git co master && git cleanbranches && git fp && git prune
 [commit]
 	gpgsign = true
 [credential]
