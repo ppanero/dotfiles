@@ -7,7 +7,8 @@
 # 3. brew install openssl readline xz pyenv
 # 4. pyenv install 3.11.4
 # 5. pyenv global 3.11.4
-# 6. source or open a new terminal
+# 6. brew install pyenv-virtualenvwrapper
+# 7. source or open a new terminal
 #
 # For psql client
 # 1. brew install libpq
@@ -101,9 +102,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$(pyenv root)/shims:/usr/local/sbin:$PATH"
 
 # Virtualenvwrapper
-# export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
 # source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper_lazy
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
